@@ -30,7 +30,9 @@ func (s *Service) Init(app sptty.ISptty) error {
 		return nil
 	}
 
-	s.generateDoc()
+	if s.cfg.Auto {
+		s.generateDoc()
+	}
 
 	app.AddRoute("GET", "/swagger/{any:path}", sw.WrapHandler(swaggerFiles.Handler, sw.URL(s.cfg.Url)))
 	return nil

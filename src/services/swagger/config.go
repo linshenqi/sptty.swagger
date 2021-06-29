@@ -10,6 +10,7 @@ type Config struct {
 
 	Enable bool   `yaml:"enable"`
 	Url    string `yaml:"url"`
+	Auto   bool   `yaml:"auto"`
 }
 
 func (s *Config) ConfigName() string {
@@ -19,5 +20,6 @@ func (s *Config) ConfigName() string {
 func (s *Config) Default() interface{} {
 	return &Config{
 		Enable: false,
+		Auto:   true,
 	}
 }
